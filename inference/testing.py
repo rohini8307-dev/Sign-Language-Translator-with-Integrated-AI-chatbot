@@ -8,22 +8,13 @@ import ollama
 import textwrap
 from threading import Thread
 
-# -------------------
-# Load model and labels
-# -------------------
 model = load_model("signn_language_landmark_model.h5")
-class_names = [chr(i) for i in range(65, 91)]  # A-Z
+class_names = [chr(i) for i in range(65, 91)]  # 
 
-# -------------------
-# Mediapipe setup
-# -------------------
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
 hands = mp_hands.Hands(static_image_mode=False, max_num_hands=1, min_detection_confidence=0.7)
 
-# -------------------
-# Variables
-# -------------------
 cap = cv2.VideoCapture(0)
 predicted_text = ""
 prev_letter = ""
@@ -38,9 +29,6 @@ print("Hold each letter steady for 2s.")
 print("Remove hand for 2s to add SPACE.")
 print("Press BACKSPACE to delete, ENTER to send, Q to quit.\n")
 
-# -------------------
-# Helper function to wrap text
-# -------------------
 def draw_wrapped_text(img, text, pos, color, scale, thickness, max_width):
     y = pos[1]
     for line in textwrap.wrap(text, width=max_width):
@@ -48,9 +36,6 @@ def draw_wrapped_text(img, text, pos, color, scale, thickness, max_width):
                     cv2.FONT_HERSHEY_SIMPLEX, scale, color, thickness, lineType=cv2.LINE_AA)
         y += int(30 * scale)
 
-# -------------------
-# pyttsx3 Voice Output (offline)
-# -------------------
 engine = pyttsx3.init()
 engine.setProperty("rate", 170)
 
@@ -64,9 +49,6 @@ def speak(text):
 
     Thread(target=_talk, daemon=True).start()
 
-# -------------------
-# Main Loop
-# -------------------
 while True:
     ret, frame = cap.read()
     if not ret:
@@ -82,7 +64,6 @@ while True:
         for hand_landmarks in results.multi_hand_landmarks:
             mp_drawing.draw_landmarks(frame, hand_landmarks, mp_hands.HAND_CONNECTIONS)
 
-            # Normalize landmarks
             x_vals = [lm.x for lm in hand_landmarks.landmark]
             y_vals = [lm.y for lm in hand_landmarks.landmark]
             min_x, max_x = min(x_vals), max(x_vals)
@@ -120,9 +101,6 @@ while True:
                 print("Added: space")
             no_hand_start = None
 
-    # -------------------
-    # Display text and AI reply neatly
-    # -------------------
     draw_wrapped_text(frame, f"You: {predicted_text}", (10, 400),
                       (255, 255, 255), 0.8, 2, 50)
     draw_wrapped_text(frame, f"Chatbot: {ai_reply}", (10, 460),
@@ -130,8 +108,7 @@ while True:
 
     cv2.imshow("Sign Language Chat", frame)
     key = cv2.waitKey(1) & 0xFF
-
-    # Quit
+    
     if key == ord('q'):
         break
 
@@ -141,13 +118,11 @@ while True:
             predicted_text = predicted_text[:-1]
             print("Deleted last character")
 
-    # ENTER → Send message
     elif key == 13:
         if predicted_text.strip():
             print(f"\nYou: {predicted_text}")
 
             try:
-                # Short 1–2 sentence reply
                 response = ollama.chat(model="mistral:latest", messages=[
                     {
                         "role": "system",
@@ -162,15 +137,15 @@ while True:
                 ai_reply = response["message"]["content"].strip()
                 print(f"Chatbot: {ai_reply}\n")
 
-                # SPEAK IN BACKGROUND (offline)
                 speak(ai_reply)
 
             except Exception as e:
                 ai_reply = "Error!"
                 print(e)
 
-            predicted_text = ""  # Reset
+            predicted_text = "" 
 
 cap.release()
 cv2.destroyAllWindows()
 print("Chat ended.")
+
