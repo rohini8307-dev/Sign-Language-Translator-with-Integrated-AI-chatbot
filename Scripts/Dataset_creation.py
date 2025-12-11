@@ -1,18 +1,15 @@
 import cv2
 import os
 
-# -------- CONFIG --------
 labels = ['A','B','C','D','E','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']   # your classes
 images_per_label = 200
 pause_after = 100
 img_size = 300
 save_path = "ddatasett"
 
-# -------- CREATE FOLDERS --------
 for label in labels:
     os.makedirs(os.path.join(save_path, label), exist_ok=True)
 
-# -------- CAMERA SETUP --------
 cap = cv2.VideoCapture(0)
 cap.set(3, 1280)
 cap.set(4, 720)
@@ -73,3 +70,4 @@ for label in labels:
 cap.release()
 cv2.destroyAllWindows()
 print("\n🎉 Dataset capture complete for all labels!")
+
