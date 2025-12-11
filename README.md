@@ -7,7 +7,7 @@
 This project implements a real-time **Sign Gesture Translation System** that converts continuous sign gestures into **letters** and then forms them into a **sentence**, and forwards them to an integrated **AI chatbot** which replies in both **text and voice**.
 The project is completely built from scratch including the  dataset collection, landmark extraction, MLP model, inference engine, sentence builder, and a complete FastAPI-based web interface.
 
-##PIPELINE:##
+## PIPELINE:
 
 1. **Sign Gesture Input** (webcam)
 2. **21-Point Landmark Extraction**
