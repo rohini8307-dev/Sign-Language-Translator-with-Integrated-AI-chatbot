@@ -2,14 +2,10 @@
 
 ### *Real-Time Sign Gesture → Text → Sentence → AI Response System*
 
-**Custom Pipeline • End-to-End Engineered • No Paid APIs**
-
 ## ABSTRACT
 
-This project implements a real-time **Sign Gesture Translation System** that converts continuous sign gestures into **letters**, forms **meaningful sentences**, and forwards them to an integrated **AI chatbot** which replies in both **text and voice**.
-
-Everything is built from scratch — dataset collection, landmark extraction, MLP model, inference engine, sentence builder, and a complete FastAPI-based web interface.
-No pre-trained gesture models or commercial APIs are used.
+This project implements a real-time **Sign Gesture Translation System** that converts continuous sign gestures into **letters** and then forms them into a **sentence**, and forwards them to an integrated **AI chatbot** which replies in both **text and voice**.
+The project is completely built from scratch including the  dataset collection, landmark extraction, MLP model, inference engine, sentence builder, and a complete FastAPI-based web interface.
 
 ##PIPELINE:##
 
@@ -27,8 +23,8 @@ No pre-trained gesture models or commercial APIs are used.
 ### **1. Dataset Creation**
 
 * Custom dataset captured using webcam
-* Hundreds of sign gesture frames
-* Pre-filtering and clean labelling
+* Each label has 200 images 
+* Every image preprocessed and with 300 x 300 Dimension and 300 pixels 
   
 ![ASL_Alphabet](https://github.com/user-attachments/assets/5b64dcbf-2071-4959-b483-22e6afb8ee53)
 
@@ -36,8 +32,8 @@ No pre-trained gesture models or commercial APIs are used.
 ### **2. Landmark Extraction**
 
 * MediaPipe Hands used to extract **21 landmark coordinates**
-* Normalization applied to scale across different hand sizes/distances
-* Converts images into structured 42-dimension vectors
+* Normalization applied to scale across different hand sizes
+* Converts images each into structured 42-dimension vectors
 
 ### **3. Sign Classification Model (MLP)**
 
@@ -56,7 +52,7 @@ Transforms continuous single-letter predictions into readable text:
 
 ### **5. AI Chatbot Module**
 
-* Final sentence fed to an LLM
+* Final sentence fed to an LLM (Mistral powered by Ollama)
 * Generates natural-language reply
 * Reply converted into **speech** using TTS
 
@@ -69,6 +65,17 @@ Transforms continuous single-letter predictions into readable text:
 
 <img width="1691" height="826" alt="Screenshot 2025-11-19 151728" src="https://github.com/user-attachments/assets/e01718ae-ce7e-4cae-96a9-5aebfd0d63dc" />
 
+## TECH STACK
+
+* Tensorflow/Keras
+* Mediapipe
+* OpenCV
+* Ollama : Mistral
+* pyttsx3
+* Flask
+* HTML
+* CSS
+* Javascript
 
 ## CORE FEATURES
 
