@@ -30,5 +30,6 @@ model.fit(X_train, y_train, epochs=100, validation_data=(X_test, y_test))
 model.save("signn_language_landmark_model.h5")
 joblib.dump(le, "labell_encoder.pkl")
 
-print("✅ Model saved as signn_language_landmark_model.h5")
-print("✅ Label encoder saved as labell_encoder.pkl")
+print("Model saved as signn_language_landmark_model.h5")
+print("Label encoder saved as labell_encoder.pkl")
+
