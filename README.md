@@ -15,6 +15,7 @@ The project is completely built from scratch including the  dataset collection, 
 4. **Sentence Builder** (buffer logic)
 5. **AI Chatbot Response** (LLM)
 6. **Text + Voice Output**
+   
 
  <img width="2195" height="691" alt="Untitled design (3)" src="https://github.com/user-attachments/assets/8864b032-9d0f-4581-a19a-d42d8282f18c" />
 
@@ -24,7 +25,8 @@ The project is completely built from scratch including the  dataset collection, 
 
 * Custom dataset captured using webcam
 * Each label has 200 images 
-* Every image preprocessed with 300 x 300 Dimension and 300 pixels 
+* Every image preprocessed with 300 x 300 Dimension and 300 pixels
+  
   
 ![ASL_Alphabet](https://github.com/user-attachments/assets/5b64dcbf-2071-4959-b483-22e6afb8ee53)
 
@@ -57,6 +59,7 @@ Transforms continuous single-letter predictions into readable text with characte
 * Real-time prediction overlay
 * Chatbot reply panel
 * Simple and clean UI
+  
 
 <img width="1691" height="826" alt="Screenshot 2025-11-19 151728" src="https://github.com/user-attachments/assets/e01718ae-ce7e-4cae-96a9-5aebfd0d63dc" />
 
@@ -83,5 +86,6 @@ Transforms continuous single-letter predictions into readable text with characte
 ## DEMO
 
 <img width="1860" height="702" alt="Screenshot 2025-11-19 225713" src="https://github.com/user-attachments/assets/7450a950-d8fc-4bc7-831d-fd6bf0521f58" />
+
 
 <img width="1864" height="699" alt="Screenshot 2025-11-20 000150" src="https://github.com/user-attachments/assets/98cdeaae-6de4-4cea-90a2-f6ec24ed8399" />
