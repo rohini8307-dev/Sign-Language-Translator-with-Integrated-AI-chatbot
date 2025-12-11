@@ -9,11 +9,11 @@ The project is completely built from scratch including the  dataset collection, 
 
 ## PIPELINE:
 
-1. **Sign Gesture Input** (webcam)
+1. **Sign Gesture Input** 
 2. **21-Point Landmark Extraction**
-3. **Custom MLP Classification** (letter-level)
-4. **Sentence Builder** (buffer logic)
-5. **AI Chatbot Response** (LLM)
+3. **Custom MLP Classification** 
+4. **Sentence Builder** 
+5. **AI Chatbot Response** 
 6. **Text + Voice Output**
    
 
