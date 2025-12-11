@@ -81,6 +81,6 @@ Transforms continuous single-letter predictions into readable text:
 
 ## DEMO
 
-<img width="1867" height="753" alt="Screenshot 2025-11-19 224453" src="https://github.com/user-attachments/assets/cc24c739-194e-40ed-856f-db073d9a66ce" />
+<img width="1860" height="702" alt="Screenshot 2025-11-19 225713" src="https://github.com/user-attachments/assets/7450a950-d8fc-4bc7-831d-fd6bf0521f58" />
 
 <img width="1864" height="699" alt="Screenshot 2025-11-20 000150" src="https://github.com/user-attachments/assets/98cdeaae-6de4-4cea-90a2-f6ec24ed8399" />
