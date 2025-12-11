@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign to Sentence Chat</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f2f5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 20px 0;
+        }
+
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 10px;
+        }
+
+        #videoContainer, #chatContainer {
+            width: 640px;
+            height: 480px;
+        }
+
+        #videoFeed {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            border: 3px solid #4a90e2;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        #chatContainer {
+            display: flex;
+            flex-direction: column;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        #chatWindow {
+            flex: 1;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow-y: auto;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 10px 15px;
+            border-radius: 20px;
+            word-wrap: break-word;
+            font-size: 14px;
+        }
+
+        .userMsg {
+            background: #d9f7be;
+            color: #1a531b;
+            align-self: flex-start;
+        }
+
+        .aiMsg {
+            background: #bee5f7;
+            color: #055160;
+            align-self: flex-start;
+        }
+
+        #controls {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #ddd;
+            background: #f5f5f5;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            background: #4a90e2;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #357ABD;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="videoContainer">
+            <img id="videoFeed" src="{{ url_for('video_feed') }}">
+        </div>
+
+        <div id="chatContainer">
+            <div id="chatWindow"></div>
+            <div id="controls">
+                <button id="sendBtn">Send Message</button>
+                <button id="clearBtn">Clear</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let lastSentText = "";  // Tracks last confirmed text that was sent as a bubble
+
+        // Poll server every 300ms for predicted text
+        setInterval(function(){
+            $.getJSON('/get_text', function(data){
+                const text = data.text.trim();
+                if(!text) return;
+
+                // Show new predicted letters in a temporary bubble if changed
+                if(text !== lastSentText){
+                    let lastUserBubble = $('#chatWindow').children('.userMsg').last();
+                    if(lastUserBubble.length === 0 || lastUserBubble.data('final') === true){
+                        // Create new bubble
+                        $('#chatWindow').append('<div class="message userMsg" data-final="false">'+text+'</div>');
+                    } else {
+                        // Update existing bubble
+                        lastUserBubble.text(text);
+                    }
+                    $('#chatWindow').scrollTop($('#chatWindow')[0].scrollHeight);
+                }
+            });
+        }, 300);
+
+        // Send full sentence to AI
+        $('#sendBtn').click(function() {
+            let lastUserBubble = $('#chatWindow').children('.userMsg').last();
+            if(!lastUserBubble) return;
+
+            const sentence = lastUserBubble.text().trim();
+            if(!sentence) return;
+
+            // Mark bubble as final
+            lastUserBubble.data('final', true);
+            lastSentText = sentence;
+
+            $.ajax({
+                url: '/send_text',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ text: sentence }),
+                success: function(response) {
+                    // Show AI reply
+                    $('#chatWindow').append('<div class="message aiMsg">'+response.reply+'</div>');
+                    $('#chatWindow').scrollTop($('#chatWindow')[0].scrollHeight);
+                }
+            });
+
+            // Clear predicted text on server
+            $.getJSON('/clear_text');
+        });
+
+        // Clear chat window completely
+        $('#clearBtn').click(function() {
+
+    // Remove the last unfinished predicted bubble
+            let lastUserBubble = $('#chatWindow').children('.userMsg').last();
+            if (lastUserBubble.length && lastUserBubble.data('final') === false) {
+                lastUserBubble.remove();
+            }
+
+    // Reset tracking variable
+            lastSentText = "";
+
+    // Clear predicted text on server
+            $.getJSON('/clear_text', function () {
+                console.log("Predicted text cleared on server.");
+            });
+        });
+
+    </script>
+</body>
+</html>

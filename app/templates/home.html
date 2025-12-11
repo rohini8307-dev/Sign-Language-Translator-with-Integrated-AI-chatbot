@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>SLTC — Sign Language Translator With Integrated AI Chatbot</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+ <body>
+  <nav class="nav container">
+    <div class="brand">
+      <div class="logo">SLTC</div>
+      <div>
+        <h1>Sign Language Translator With Integrated AI Chatbot</h1>
+        <p><b>Bridging silence with technology</b></p>
+      </div>
+    </div>
+    <div class="nav-links">
+      <a href="home.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="how_it_works.html">How it works</a>
+      <a href="http://127.0.0.1:5000/" target="_blank" class="btn">Try it</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container grid columns-2">
+      <div class="hero-left" data-aos="fade-right">
+        <div class="kicker">AI · Computer Vision · Accessibility</div>
+        <h2 class="title">Real-time Sign Language Translation — With Integrated AI Chatbot</h2>
+        <p class="lead">An edge-friendly sign language translator that turns hand gestures into text, feeds it to a chatbot, and delivers a natural conversational reply.</p>
+
+        <div class="hero-cta">
+          <a href="http://127.0.0.1:5000/" target="_blank" class="btn">Launch Translator</a>
+          <a href="#about" class="btn btn-ghost">Learn more</a>
+        </div>
+
+        <div style="margin-top:20px;color:var(--soft);font-size:13px">
+          Live demo is hosted in Flask. Click <strong>Launch Translator</strong> to open it in a new tab.
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
+  <script>
+    VANTA.NET({
+      el: document.querySelector('.hero'),
+      color: 0x00e6ff,
+      backgroundColor: 0x05070a,
+      points: 10.0,
+      maxDistance: 22.0,
+      spacing: 18.0
+    });
+  </script>
+</body>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+  VANTA.NET({
+    el: document.querySelector('.hero'),
+    color: 0x00e6ff,
+    backgroundColor: 0x05070a,
+    points: 10.00,
+    maxDistance: 22.00,
+    spacing: 18.00
+  });
+</script>
+
+</body>
+</html>

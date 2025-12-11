@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About – Sign Language Translator With Integrated AI Chatbot</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+
+    main {
+      padding-top: 120px;
+    }
+
+    /* Better step layout */
+    .steps {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    .step {
+      background: rgba(255, 255, 255, 0.03);
+      padding: 20px 25px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(6px);
+      transition: 0.3s ease;
+    }
+
+    .step:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    h1 {
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    h3 {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    p {
+      line-height: 1.5;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="nav container">
+  <div class="brand">
+    <div class="logo">SLTC</div>
+    <div>
+      <h1>Sign Language Translator With Integrated AI Chatbot</h1>
+      <p>Bridging silence with technology</p>
+    </div>
+  </div>
+
+  <div class="nav-links">
+    <a href="home.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="how_it_works.html" class="active">How it works</a>
+    <a href="http://127.0.0.1:5000/" target="_blank" class="btn">Try it</a>
+  </div>
+</nav>
+
+
+
+  <!-- How It Works Section -->
+  <main>
+    <section id="how" style="background:linear-gradient(180deg, transparent, rgba(255,255,255,0.03)); padding-bottom:60px;">
+      <div class="container">
+        
+        <h1 style="font-family:Orbitron">How It Works</h1>
+        <p style="max-width:700px; margin-top:10px; color:var(--soft);">
+          The system processes live video, detects hand gestures, predicts the corresponding token, 
+          and communicates the result to the integrated AI chatbot for a natural conversational response.
+        </p>
+
+        <div class="steps">
+
+          <div class="step">
+            <div style="display:flex; gap:14px; align-items:center;">
+              <div class="icon">1</div>
+              <div>
+                <h3>Capture</h3>
+                <p>The webcam stream is captured using OpenCV and transmitted in real time through Flask’s video route.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div style="display:flex; gap:14px; align-items:center;">
+              <div class="icon">2</div>
+              <div>
+                <h3>Detect</h3>
+                <p>MediaPipe extracts precise hand landmarks and keypoints for gesture classification.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div style="display:flex; gap:14px; align-items:center;">
+              <div class="icon">3</div>
+              <div>
+                <h3>Predict</h3>
+                <p>A Deep Learning MLP model interprets the landmarks and maps them to a recognized signs.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <div style="display:flex; gap:14px; align-items:center;">
+              <div class="icon">4</div>
+              <div>
+                <h3>Respond</h3>
+                <p>The output is displayed as text and passed to the integrated chatbot, which generates a conversational reply.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
