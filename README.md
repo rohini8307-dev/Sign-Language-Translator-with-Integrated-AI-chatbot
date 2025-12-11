@@ -29,7 +29,8 @@ No pre-trained gesture models or commercial APIs are used.
 * Custom dataset captured using webcam
 * Hundreds of sign gesture frames
 * Pre-filtering and clean labelling
-  ![ASL_Alphabet](https://github.com/user-attachments/assets/5b64dcbf-2071-4959-b483-22e6afb8ee53)
+  
+![ASL_Alphabet](https://github.com/user-attachments/assets/5b64dcbf-2071-4959-b483-22e6afb8ee53)
 
 
 ### **2. Landmark Extraction**
