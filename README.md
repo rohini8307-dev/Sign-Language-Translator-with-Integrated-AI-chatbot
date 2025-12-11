@@ -24,7 +24,7 @@ The project is completely built from scratch including the  dataset collection, 
 
 * Custom dataset captured using webcam
 * Each label has 200 images 
-* Every image preprocessed and with 300 x 300 Dimension and 300 pixels 
+* Every image preprocessed with 300 x 300 Dimension and 300 pixels 
   
 ![ASL_Alphabet](https://github.com/user-attachments/assets/5b64dcbf-2071-4959-b483-22e6afb8ee53)
 
@@ -43,16 +43,11 @@ The project is completely built from scratch including the  dataset collection, 
 
 ### **4. Sentence Builder**
 
-Transforms continuous single-letter predictions into readable text:
-
-* Character buffer
-* Smart spacing
-* Delete logic
-* Word & sentence formation rules
+Transforms continuous single-letter predictions into readable text with character buffer, Smart spacing, and delete logic.
 
 ### **5. AI Chatbot Module**
 
-* Final sentence fed to an LLM (Mistral powered by Ollama)
+* Final sentence fed to the LLM (Mistral powered by Ollama)
 * Generates natural-language reply
 * Reply converted into **speech** using TTS
 
@@ -61,13 +56,13 @@ Transforms continuous single-letter predictions into readable text:
 * Camera stream
 * Real-time prediction overlay
 * Chatbot reply panel
-* Simple, clean UI
+* Simple and clean UI
 
 <img width="1691" height="826" alt="Screenshot 2025-11-19 151728" src="https://github.com/user-attachments/assets/e01718ae-ce7e-4cae-96a9-5aebfd0d63dc" />
 
 ## TECH STACK
 
-* Tensorflow/Keras
+* Tensorflow / Keras
 * Mediapipe
 * OpenCV
 * Ollama : Mistral
@@ -81,10 +76,9 @@ Transforms continuous single-letter predictions into readable text:
 
 *  **Real-time sign gesture recognition**
 *  **Accurate MLP classifier trained on custom data**
-*  **Pure landmark-based machine learning pipeline**
+*  **Pure landmark-based deep learning pipeline**
 *  **Integrated AI chatbot with text + voice output**
 *  **FastAPI backend with a lightweight frontend**
-* **Modular, industry-standard code structure**
 
 ## DEMO
 
