@@ -3,20 +3,17 @@ import mediapipe as mp
 import os
 import csv
 
-# -------- SETUP --------
 dataset_dir = r"c:\Users\HAI\ddatasett"
-output_file = "landmarks.csv"
+output_file = "landmarkss.csv"
 
 mp_hands = mp.solutions.hands
 mp_drawing = mp.solutions.drawing_utils
 hands = mp_hands.Hands(static_image_mode=True, max_num_hands=1)
 
-# -------- CSV HEADER --------
 header = ["label"]
 for i in range(21):
     header += [f"x{i}", f"y{i}"]
-
-# -------- EXTRACT LANDMARKS --------
+    
 with open(output_file, "w", newline="") as f:
     csv_writer = csv.writer(f)
     csv_writer.writerow(header)
@@ -42,5 +39,6 @@ with open(output_file, "w", newline="") as f:
                         row += [lm.x, lm.y]
                     csv_writer.writerow(row)
 
-print("✅ Landmarks extracted and saved to 'landmarks.csv'")
+print("Landmarks extracted and saved to 'landmarkss.csv'")
+
 
