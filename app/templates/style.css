@@ -1,8 +1,8 @@
 :root{
   --bg:#0b0f17;
   --panel:#0f1720;
-  --accent:#00e6ff; /* cyan */
-  --accent-2:#b36bff; /* purple */
+  --accent:#00e6ff;
+  --accent-2:#b36bff;
   --glass: rgba(255,255,255,0.04);
   --soft:#8793a1;
   --radius:14px;
@@ -18,7 +18,6 @@ html,body{
   font-family:Poppins,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif
 }
 
-/* ===== NAV ===== */
 .nav{
   position:fixed;
   left:0;right:0;top:18px;
@@ -48,8 +47,6 @@ html,body{
   font-size:14px;
 }
 
-
-/* CTA button */
 .nav-links a.cta,
 .btn {
   background:linear-gradient(90deg,var(--accent),var(--accent-2));
@@ -61,7 +58,6 @@ html,body{
   color:#06111a !important;
 }
 
-/* ===== HERO ===== */
 header.hero{
   min-height:92vh;
   display:flex;
@@ -95,7 +91,6 @@ p.lead{
   gap:12px;
 }
 
-/* Buttons */
 .btn {
   padding: 12px 18px;
   border-radius: 12px;
@@ -127,7 +122,6 @@ p.lead{
   color: var(--accent) !important;
 }
 
-/* right card */
 .hero-right{
   margin-left:auto;
   min-width:360px;
@@ -158,13 +152,11 @@ p.lead{
   filter:blur(18px)
 }
 
-/* ===== SECTIONS ===== */
 section{padding:80px 6%}
 .container{max-width:1200px;margin:0 auto}
 .grid{display:grid;gap:24px}
 .columns-2{grid-template-columns:repeat(2,1fr)}
 
-/* How it works */
 .steps{display:flex;gap:18px;flex-wrap:wrap}
 .step{
   flex:1;
@@ -181,42 +173,6 @@ section{padding:80px 6%}
   font-family:Orbitron
 }
 
-/* tech badges */
-.tech-row{display:flex;gap:12px;flex-wrap:wrap}
-.tech{
-  padding:10px 14px;border-radius:10px;
-  border:1px solid var(--glass-border);
-  font-weight:600;color:var(--soft);
-  background:linear-gradient(180deg,rgba(255,255,255,0.01),transparent)
-}
-
-/* team */
-.team-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:18px
-}
-.member{
-  padding:14px;border-radius:12px;
-  border:1px solid var(--glass-border);
-  background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);
-  text-align:center
-}
-.avatar{
-  width:92px;height:92px;border-radius:999px;
-  margin:0 auto 12px;
-  display:flex;align-items:center;justify-content:center;
-  font-family:Orbitron;font-weight:700;
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
-  box-shadow:0 10px 30px rgba(0,0,0,0.6)
-}
-.member h3{margin:6px 0 4px}
-.member p{margin:0;color:var(--soft);font-size:13px}
-
-/* contact */
-
-
-/* responsive */
 @media (max-width:900px){
   .hero{padding:80px 5%}
   .hero-right{display:none}
@@ -225,11 +181,10 @@ section{padding:80px 6%}
   .brand h1{font-size:14px}
   h2.title{font-size:32px}
 }
-
-/* subtle animations */
 .pulse{animation:pulse 2.5s infinite}
 @keyframes pulse{
   0%{transform:scale(1)}
   50%{transform:scale(1.02)}
   100%{transform:scale(1)}
 }
+
