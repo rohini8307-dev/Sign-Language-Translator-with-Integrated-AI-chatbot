@@ -1,4 +1,4 @@
-# Sign-Language-Translator-with-Integrated-AI-chatbot
+# Sign Language Translator with Integrated AI chatbot
 
 ### *Real-Time Sign Gesture → Text → Sentence → AI Response System*
 
