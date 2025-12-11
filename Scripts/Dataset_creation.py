@@ -1,7 +1,7 @@
 import cv2
 import os
 
-labels = ['A','B','C','D','E','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']   # your classes
+labels = ['A','B','C','D','E','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']   
 images_per_label = 200
 pause_after = 100
 img_size = 300
@@ -70,4 +70,5 @@ for label in labels:
 cap.release()
 cv2.destroyAllWindows()
 print("\n🎉 Dataset capture complete for all labels!")
+
 
