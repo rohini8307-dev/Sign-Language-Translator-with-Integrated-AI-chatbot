@@ -25,7 +25,7 @@ The project is completely built from scratch including the  dataset collection, 
 
 * Custom dataset captured using webcam
 * Each label has 200 images 
-* Every image preprocessed with 300 x 300 Dimension and 300 pixels
+* Every image is preprocessed to a resolution of 300 × 300 pixels.
   
   
 ![ASL_Alphabet](https://github.com/user-attachments/assets/5b64dcbf-2071-4959-b483-22e6afb8ee53)
